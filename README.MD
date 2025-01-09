@@ -11,11 +11,18 @@ The project uses the [Yelp Review Dataset from Kaggle](https://www.kaggle.com/c/
 - Review text
 
 ## Features
-- Text preprocessing using CountVectorizer and TF-IDF
-- Machine learning pipeline implementation
-- Model comparison between Naive Bayes, Random Forest and Support Vector Machine
-- Comprehensive EDA (Exploratory Data Analysis)
+- Text preprocessing pipeline:
+  - Punctuation removal
+  - Stopwords removal
+  - Text vectorization using CountVectorizer
+  - TF-IDF transformation
+- Machine learning models comparison:
+  - Multinomial Naive Bayes
+  - Random Forest Classifier
+  - Support Vector Machine
+- Comprehensive EDA with visualization
 - Performance metrics evaluation
+- Model comparison before and after text preprocessing
 
 ## Technical Stack
 - Python 3.x
@@ -24,34 +31,39 @@ The project uses the [Yelp Review Dataset from Kaggle](https://www.kaggle.com/c/
   - matplotlib
   - seaborn
   - scikit-learn
+  - NLTK
 
 ## Key Findings
-- Random Forest Classifier achieved better overall performance (84% accuracy)
-- Naive Bayes showed strong bias towards 5-star predictions
-- Text length correlates with review ratings
-- Significant class imbalance between 1-star and 5-star reviews
-- SVM model exhibited:
-    - High precision for predicting 1-star reviews (96%) but lower recall (59%) for the same class, indicating it missed a significant number of 1-star predictions.
-    - High recall for 5-star reviews (99%) but slightly lower precision (91%), suggesting the model tended to predict more 5-star reviews, some of which were false positives.
-    - Overall accuracy of 92%, with a notable performance gap between the two classes. 
-    - Macro average F1-score of 0.84, highlighting the imbalance in class performance.
-    - Weighted average F1-score of 0.91, showing the model’s solid overall performance despite the class imbalance.
+### Before Text Preprocessing:
+- Random Forest: 84% accuracy
+- Naive Bayes: 81% accuracy, struggled with 1-star reviews
+- SVM: 92% accuracy, best overall performance
+
+### After Text Preprocessing:
+- All models showed significant improvement
+- SVM maintained best performance with better balance
+- Naive Bayes showed dramatic improvement in 1-star detection
+- Random Forest achieved more balanced performance across classes
+
+### Impact of Text Preprocessing:
+- Reduced noise in review text
+- Improved 1-star review detection
+- Created more balanced classification performance
+- Narrowed performance gap between models
 
 ## Usage
-Run the Jupyter notebook `yelp_reviews_nlp.ipynb` to see the complete analysis and model implementation.
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run the Jupyter notebook: `jupyter notebook notebooks/yelp_reviews_nlp.ipynb`
 
-## Results
-### Random Forest Classifier
-- Accuracy: 84%
-- Better balanced performance across classes
-- Strong precision for both classes
-
-### Naive Bayes
-- Accuracy: 81%
-- Perfect recall for 5-star reviews
-- Poor performance on 1-star reviews
+## Model Selection Guide
+- Choose SVM for highest accuracy
+- Choose Random Forest for balance of performance and interpretability
+- Choose Naive Bayes for fast training with competitive results
 
 ## Future Improvements
-- Address class imbalance
-- Implement more advanced text preprocessing
-- Feature engineering for better 1-star detection
+- Implement advanced text preprocessing techniques
+- Experiment with deep learning models
+- Add cross-validation
+- Explore additional feature engineering
+- Deploy model as web service

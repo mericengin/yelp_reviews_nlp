@@ -48,5 +48,4 @@ Run the Jupyter notebook `yelp_reviews_nlp.ipynb` to see the complete analysis a
 ## Future Improvements
 - Address class imbalance
 - Implement more advanced text preprocessing
-- Try other classification algorithms
 - Feature engineering for better 1-star detection

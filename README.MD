@@ -63,7 +63,5 @@ The project uses the [Yelp Review Dataset from Kaggle](https://www.kaggle.com/c/
 
 ## Future Improvements
 - Implement advanced text preprocessing techniques
-- Experiment with deep learning models
 - Add cross-validation
 - Explore additional feature engineering
-- Deploy model as web service
